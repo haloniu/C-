@@ -1,0 +1,58 @@
+//数组元素做函数实参
+//输入10个整数，输出最大值并输出是第几个元素
+int max(int a, int b);
+int main()
+{
+	int a[10] = { 0 };
+	int i = 0;
+	int m = 0;
+	int n = 0;
+	printf("请输入10个整数\n");
+	for (i; i < 10;i++)
+	{
+		scanf(" %d", &a[i]);
+	}
+	for (m=a[0],n,i=1;i<10;i++)
+	{
+		if (max(a[i],m) > m)
+		{
+			m = a[i];
+			n = i;
+		}
+	}
+	printf("max = %d,第%d个", max(a[i], m), n+1);
+	return 0;
+}
+int max(int a, int b)
+{
+	return a > b ? a : b;
+}
+
+
+//数组名做函数实参
+//输入10个分数，然后求出平均值。
+int main()
+{
+	float average(float array[]);   //声明函数
+	float score[10];   //创建数组
+	printf("请输入10个分数\n");
+	int i = 0;
+	for (i;i < 10;i++)  //将10个分数存入数组中
+	{
+		scanf("%f",&score[i]);
+	}
+	printf("aver : %f ", average(score));
+	return 0;
+}
+float average(float array[10])  //定义函数
+{
+	float aver;
+	float sum = array[0];   //将第一个分数的值赋给sum方便后续累加
+	for (int i = 1;i < 10;i++)   
+	{                                                                                         
+		sum += array[i];    //将10个分数累加入sum中
+		aver = sum / 10;   //求出平均值
+	}
+	
+	return aver;
+}
