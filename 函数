@@ -1,0 +1,55 @@
+//函数的嵌套调用
+
+//输入四个整数，找出其中最大的数
+//声明函数
+int max1(int a, int b,int c, int d);
+int main()
+{
+	int a, b, c, d;
+	printf("请输入四个整数：\n");
+	scanf("%d%d%d%d",&a,&b,&c,&d);
+	
+	printf("四个整数中的最大值是：%d",max1(a,b,c,d));
+	return 0;
+}
+int max1(int a, int b, int c, int d) //先两个数进行比较，得出最大值1。 
+{
+	int max2(int a, int b);
+	return(max2(max2(max2(a, b), c), d));
+}
+int max2(int a, int b) //在将剩下的两个数进行比较，得出最大值2。
+{
+	return(a > b ? a:b);
+}
+
+
+
+//使用函数递归中“递推”的方法编写一个n的阶乘的函数
+
+//函数的声明
+int factorial(int n);
+int main()
+{
+	int n = 0;
+	printf("请输入一个整数\n");
+	scanf("%d",&n);
+	printf("阶乘：%d", factorial(n));
+	return 0;
+}
+int factorial(int n)//阶乘函数的实现
+{
+	int f = 0;
+	if (n < 0)
+	{
+		printf("输入有误");
+	}
+	else if (n == 1 || n == 0)
+	{
+		f = 1;
+	}
+	else  //结束条件
+	{
+		f =factorial(n - 1)*n;//递推
+	}
+	return f;
+}
