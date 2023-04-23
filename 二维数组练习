@@ -10,7 +10,7 @@ int main()
 		{
 			scanf("%d",&arr1[i][j]); //初始化arr1的值
 			printf("%d\t", arr1[i][j]);
-			arr2[j][i] = arr1[i][j];
+			arr2[j][i] = arr1[i][j];  //数组的行和列互换
 		}
 		printf("\n");
 	}
@@ -21,7 +21,7 @@ int main()
 	{
 		for (int j = 0;j < 2;j++)
 		{
-			printf("%d\t",arr2[i][j]);
+			printf("%d\t",arr2[i][j]); //输出行和列互换后的数组
 		}
 		printf("\n");
 	}
