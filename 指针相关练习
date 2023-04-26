@@ -1,0 +1,15 @@
+//输入两个整形变量的值，不交换整形变量的值，而是交换两指针变量的值,最终交换两变量的值
+int main()
+{
+	int a, b = 0;
+	scanf("%d",&a);   //获取从键盘上输入的a和b的值
+	scanf("%d", &b);
+	int* pa = &a;  //定义两个指针变量
+	int* pb = &b;
+	printf("交换前：a:%d,b:%d\n",*pa,*pb);  //两指针变量交换前
+	int* ptemp = pa; //定义中间指针变量
+	pa = pb;   //交换两个指针变量的值
+	pb = ptemp;
+	printf("交换后\ta:%d,b:%d", *pa, *pb); //两指针变量交换后
+	return 0;
+}
