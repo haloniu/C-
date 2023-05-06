@@ -35,3 +35,66 @@ void swap(int* p1, int* p2)
 	*p1 = *p2;
 	*p2 = temp;
 }
+
+//输入10个整数，将其中最小的数与第一个数交换，把最大的数与最后一个数交换。
+//写三个函数 1.输入10个整数 2.进行处理 3.输出10个数
+int main()
+{
+	void input(int *a);  //输入函数的声明
+	void max_min_value(int *); //处理函数的声明
+	void output(int *); //输出函数的声明
+	int a[10] = { 0 }; //初始化数组a的内容
+	input(a); 
+	printf("exchanging....\n");
+	max_min_value(a);
+	output(a);
+	return 0;
+}
+//函数1（输入10个整数）
+void input(int * a)  //传入数组a的地址
+{
+	int i = 0;
+	printf("please input 10 numbers\n");  
+	for (i; i<10;i++)  //将10个整数存入数组a中
+	{
+		scanf("%d",&a[i]);
+	}
+}
+//函数2（操作处理）
+void max_min_value(int *a)  //处理操作函数的定义
+{
+	int * min = a;  //使min指向数组首元素	
+	int* max = a;   //使max指向数组首元素
+	int* p = NULL;
+	int temp = 0;
+	for (p=a+1;p < a + 10;p++)  //循环10次，得到最大值
+	{
+		if (*p > *max)
+		{
+			max = p;  //使p指向最大值
+			temp = a[9];
+			a[9] = *max;  //将最大值与数组最后一个元素交换
+			*max = temp;
+		}
+	}
+	for (p=a + 1;p < a+ 10 ;p++) //循环10次，得到最小值
+	{
+		if (*p < *min)
+		{
+			min = p;
+			temp = a[0];
+			a[0] = *min; 	//将最小值与数数组首元素交换
+			*min = temp;
+		}
+	}
+}
+//函数3（输出函数）
+void output(int* a)
+{
+	
+	for (int i = 0; i<10;i++)
+	{
+		printf("%d ",a[i]);  //输出交换后的数组
+	}
+}
+
