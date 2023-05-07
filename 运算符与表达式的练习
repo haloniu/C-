@@ -1,0 +1,11 @@
+//给定一个大写字母，要求用小写输出。
+int main()
+{
+	//小写字母的ASCII码 -32 = 大写字母ASCII码
+	char a = 0;
+	scanf("%c",&a);  //得到一个大写字母
+	int c = a + 32; //将大写字母的ASCII码+32；
+	printf("%c",c);  //输出小写字母
+
+	return 0;
+}
