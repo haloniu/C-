@@ -1,0 +1,93 @@
+//习题：输入<1000的正整数，输出它的平方根，在操作前先判断其是否为小于1000的正整数
+int main()
+{
+	int number = 0;
+	scanf("%d",&number);
+	if (number < 1000)
+	{
+		printf("输出正确，开始操作");
+		int answer = sqrt(number);
+		printf("the answer is :%d", answer);
+	}
+	else
+	{
+		printf("the number was error please input again\n");
+	}
+
+	return 0;
+}
+
+/*
+	给出一个不多于五位数的正整数，要求：
+		1.求出它是几位数
+		2.分别输出每一位数字
+		3.逆序输出
+*/
+int main()
+{
+	int num_qut(int);
+	void out_put(int,int);
+	int number = 0;
+	scanf("%d",&number);
+	if (number < 99999 && number>0)
+	{
+		printf("输入正确开始操作\n");
+		out_put(num_qut(number),number);
+	}
+	else
+	{
+		printf("number was error please inout again\n");
+	}
+	return 0;
+}
+int num_qut(int number)  //求出number是几位数
+{
+	int digit = 0;
+	if (number > 9999)
+	{
+		digit = 5;
+	}
+	else if (number > 999)
+	{
+		digit = 4;
+	}
+	else if (number > 99)
+	{
+		digit = 3;
+	}
+	else if (number > 9)
+	{
+		digit = 2;
+	}
+	else
+	{
+		digit = 1;
+	}
+	printf("%d位数\n",digit);
+	return digit;
+}
+void out_put(int digit,int number) //分别输出每一位数字;
+{
+	int ten_thousand = (number / 10000); //万位
+	int thousand = (number-ten_thousand*10000)/1000;//千位
+	int hundred = ((number-ten_thousand*10000-thousand*1000)/100);//百位
+	int ten = ((number-ten_thousand*10000-thousand*1000-hundred*100)/10); //十位
+	int indiv = (number-ten_thousand*10000-thousand*1000-hundred*100-ten*10);//个位
+	switch (digit)
+	{
+	case 1:printf("%d", number);break;
+	case 2:printf("十位：%d， 个位：%d\n", ten, indiv);break;
+	case 3:printf("百位：%d, 十位：%d， 个位：%d\n", hundred,ten, indiv);break;
+	case 4:printf("千位：%d, 百位：%d, 十位：%d， 个位：%d\n", thousand, hundred, ten, indiv);break;
+	case 5:printf("万位:%d, 千位：%d, 百位：%d, 十位：%d， 个位：%d\n",ten_thousand, thousand, hundred, ten, indiv);break;
+	}
+	printf("逆序输出\n");
+	switch (digit)//逆序输出
+	{
+	case 1:printf("%d", number);break;
+	case 2:printf("十位：%d， 个位：%d\n",indiv,ten);break;
+	case 3:printf("百位：%d, 十位：%d， 个位：%d\n", indiv, ten,thousand);break;
+	case 4:printf("千位：%d, 百位：%d, 十位：%d， 个位：%d\n", indiv,ten, hundred,thousand);break;
+	case 5:printf("万位:%d, 千位：%d, 百位：%d, 十位：%d， 个位：%d\n",indiv,ten,hundred,thousand,ten_thousand);break;
+	}
+}
